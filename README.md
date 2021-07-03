@@ -1,1 +1,1 @@
-# Try making app with React Native
+# Trying making app with React Native
