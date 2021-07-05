@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Alert, TextInput, Button, Linking } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Alert, Button } from 'react-native';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
@@ -8,6 +8,12 @@ import nextId from 'react-id-generator';
 const App = () => {
 
   const [items, setItems] = useState([]);
+
+  const [count, setCount] = useState(0);
+
+  const onClickHandler = () => {
+    setCount(count + 1);
+  }
 
   const deleteItem = (id) => {
     setItems(prevItems => {
@@ -35,7 +41,10 @@ const App = () => {
           <ListItem item={item} deleteItem={deleteItem} />
         )}
       />
-      <Button title='Something for you...' onPress={()=>{Linking.openURL('https://www.youtube.com/playlist?list=PLlChGbUab9K-PYvLnvljFo3XqHDZPqRM1')}}></Button>
+      <View style={styles.btnContainer}>
+        <Text style={styles.text}>{count}</Text>
+        <Button title='UP' onPress={onClickHandler}></Button>
+      </View>
     </View>
   );
 };
@@ -43,6 +52,13 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  text: {
+    fontSize: 23,
+    color: 'yellow',
+  },
+  btnContainer: {
+    alignItems: 'center',
   },
 });
 
