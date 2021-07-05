@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Alert, TextInput } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Alert, TextInput, Button, Linking } from 'react-native';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 import AddItem from './components/AddItem';
@@ -35,6 +35,7 @@ const App = () => {
           <ListItem item={item} deleteItem={deleteItem} />
         )}
       />
+      <Button title='Something for you...' onPress={()=>{Linking.openURL('https://www.youtube.com/playlist?list=PLlChGbUab9K-PYvLnvljFo3XqHDZPqRM1')}}></Button>
     </View>
   );
 };
